@@ -6,9 +6,10 @@ import java.util.stream.Collectors;
 
 public class NoRepeatSubstring {
     public static void main(String[] args) {
-
+        System.out.println(maxNoRepeat_slidingWindow("bbbbb"));
     }
 
+    //n cube
     static int maxNoRepeat_brute(String input) {
         if(input == null || input.length() == 0) {
             return 0;
@@ -27,5 +28,24 @@ public class NoRepeatSubstring {
         }
         return currentMax;
     }
+
+    //O(n)
+    static int maxNoRepeat_slidingWindow(String input) {
+        Set<Character> set = new HashSet<>(input.length());
+        int i=0, j=0, output=0;
+
+        while(i<input.length() && j<input.length()) {
+            if(!set.contains(input.charAt(j))) {
+                set.add(input.charAt(j));
+                j++;
+                output = Math.max(output, j-i);
+            } else {
+                set.remove(input.charAt(i));
+                i++;
+            }
+        }
+        return output;
+    }
+
 
 }
