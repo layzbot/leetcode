@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class NoRepeatSubstring {
+public class NoRepeatSubstring_3 {
     public static void main(String[] args) {
         System.out.println(maxNoRepeat_slidingWindow("bbbbb"));
     }
